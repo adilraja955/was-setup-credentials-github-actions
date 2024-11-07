@@ -13,11 +13,9 @@ resource "aws_security_group" "raja_stack_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.MYIP]
+    cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    Name = "allow-ssh"
-  }
+  
 
   ingress {
     from_port   = 80
@@ -25,4 +23,9 @@ resource "aws_security_group" "raja_stack_sg" {
     protocol    = "tcp"
     cidr_blocks = [var.MYIP]
   }
+  
+  tags = {
+    Name = "web-sh"
+  }
+
 }
